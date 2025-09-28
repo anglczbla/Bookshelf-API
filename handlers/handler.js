@@ -8,14 +8,14 @@ const addBook = (request, h) => {
   if (!name) {
     return h.response({
       status: 'fail',
-      message: 'Failed to add book. Please provide the book\'s name.'
+      message: 'Gagal menambahkan buku. Mohon isi nama buku'
     }).code(400);
   }
 
   if (readPage > pageCount) {
     return h.response({
       status: 'fail',
-      message: 'Failed to add book. readPage cannot be greater than pageCount.'
+      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount.'
     }).code(400);
   }
 
@@ -29,7 +29,7 @@ const addBook = (request, h) => {
 
   return h.response({
     status: 'success',
-    message: 'Book successfully added',
+    message: 'Buku berhasil ditambahkan',
     data: {
       bookId: id
     }
@@ -75,14 +75,14 @@ const updateBook = (request, h) => {
   if (!name) {
     return h.response({
       status: 'fail',
-      message: 'Failed to update book. Please provide the book\'s name.'
+      message: 'Gagal memperbarui buku. Mohon isi nama buku'
     }).code(400);
   }
 
   if (readPage > pageCount) {
     return h.response({
       status: 'fail',
-      message: 'Failed to update book. readPage cannot be greater than pageCount.'
+      message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount'
     }).code(400);
   }
 
@@ -90,7 +90,7 @@ const updateBook = (request, h) => {
   if (bookIndex === -1) {
     return h.response({
       status: 'fail',
-      message: 'Failed to update book. Id not found.'
+      message: 'Gagal memperbarui buku. Id tidak ditemukan.'
     }).code(404);
   }
 
@@ -99,7 +99,7 @@ const updateBook = (request, h) => {
 
   return h.response({
     status: 'success',
-    message: 'Book successfully updated'
+    message: 'Buku berhasil diperbarui'
   }).code(200);
 };
 
@@ -110,14 +110,14 @@ const deleteBook = (request, h) => {
   if (bookIndex === -1) {
     return h.response({
       status: 'fail',
-      message: 'Failed to delete book. Id not found.'
+      message: 'Buku gagal dihapus. Id tidak ditemukan'
     }).code(404);
   }
 
   books.splice(bookIndex, 1);
   return h.response({
     status: 'success',
-    message: 'Book successfully deleted'
+    message: 'Buku berhasil dihapus'
   }).code(200);
 };
 
