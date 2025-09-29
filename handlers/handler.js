@@ -90,19 +90,31 @@ const updateBook = (request, h) => {
   if (bookIndex === -1) {
     return h.response({
       status: 'fail',
-      message: 'Gagal memperbarui buku. Id tidak ditemukan.'
+      message: 'Gagal memperbarui buku. Id tidak ditemukan'
     }).code(404);
   }
 
+  const finished = pageCount === readPage; 
   const updatedAt = new Date().toISOString();
-  books[bookIndex] = { ...books[bookIndex], name, year, author, summary, publisher, pageCount, readPage, reading, updatedAt };
+  books[bookIndex] = { 
+    ...books[bookIndex], 
+    name, 
+    year, 
+    author, 
+    summary, 
+    publisher, 
+    pageCount, 
+    readPage, 
+    reading, 
+    finished,
+    updatedAt 
+  };
 
   return h.response({
     status: 'success',
     message: 'Buku berhasil diperbarui'
   }).code(200);
 };
-
 const deleteBook = (request, h) => {
   const { bookId } = request.params;
   const bookIndex = books.findIndex(b => b.id === bookId);
