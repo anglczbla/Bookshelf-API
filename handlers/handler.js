@@ -15,7 +15,7 @@ const addBook = (request, h) => {
   if (readPage > pageCount) {
     return h.response({
       status: 'fail',
-      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount.'
+      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount'
     }).code(400);
   }
 
@@ -56,7 +56,7 @@ const getBookById = (request, h) => {
   if (!book) {
     return h.response({
       status: 'fail',
-      message: 'Book not found'
+      message: 'Buku tidak ditemukan'
     }).code(404);
   }
 
